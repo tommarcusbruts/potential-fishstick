@@ -1,0 +1,95 @@
+ubuntu@ip-172-31-3-149:~/task$ sudo terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # docker_container.nginx will be created
+  + resource "docker_container" "nginx" {
+      + attach           = false
+      + bridge           = (known after apply)
+      + command          = (known after apply)
+      + container_logs   = (known after apply)
+      + entrypoint       = (known after apply)
+      + env              = (known after apply)
+      + exit_code        = (known after apply)
+      + gateway          = (known after apply)
+      + hostname         = (known after apply)
+      + id               = (known after apply)
+      + image            = (known after apply)
+      + init             = (known after apply)
+      + ip_address       = (known after apply)
+      + ip_prefix_length = (known after apply)
+      + ipc_mode         = (known after apply)
+      + log_driver       = "json-file"
+      + logs             = false
+      + must_run         = true
+      + name             = "nginx_container"
+      + network_data     = (known after apply)
+      + read_only        = false
+      + remove_volumes   = true
+      + restart          = "no"
+      + rm               = false
+      + security_opts    = (known after apply)
+      + shm_size         = (known after apply)
+      + start            = true
+      + stdin_open       = false
+      + tty              = false
+
+      + healthcheck (known after apply)
+
+      + labels (known after apply)
+
+      + ports {
+          + external = 8080
+          + internal = 80
+          + ip       = "0.0.0.0"
+          + protocol = "tcp"
+        }
+    }
+
+  # docker_image.nginx will be created
+  + resource "docker_image" "nginx" {
+      + id           = (known after apply)
+      + keep_locally = false
+      + latest       = (known after apply)
+      + name         = "nginx:latest"
+      + output       = (known after apply)
+      + repo_digest  = (known after apply)
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+╷
+│ Warning: Deprecated attribute
+│ 
+│   on main.tf line 19, in resource "docker_container" "nginx":
+│   19:   image = docker_image.nginx.latest
+│ 
+│ The attribute "latest" is deprecated. Refer to the provider documentation for details.
+│ 
+│ (and one more similar warning elsewhere)
+╵
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+docker_image.nginx: Creating...
+docker_image.nginx: Creation complete after 8s [id=sha256:be69f2940aaf64fdf50c9c99420cbd57e10ee655ec7204df1c407e9af63d0cc1nginx:latest]
+docker_container.nginx: Creating...
+docker_container.nginx: Creation complete after 1s [id=f825e55383c278e69c2942f906ae71e222ba47d50f1342b8b245ca53e07ed913]
+╷
+│ Warning: Deprecated attribute
+│ 
+│   on main.tf line 19, in resource "docker_container" "nginx":
+│   19:   image = docker_image.nginx.latest
+│ 
+│ The attribute "latest" is deprecated. Refer to the provider documentation for details.
+│ 
+│ (and one more similar warning elsewhere)
+╵
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
