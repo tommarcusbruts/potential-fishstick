@@ -1,0 +1,3 @@
+ubuntu@ip-172-31-3-149:~/task$ terraform state list
+docker_container.nginx
+docker_image.nginx
